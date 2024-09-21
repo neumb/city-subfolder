@@ -5,7 +5,7 @@
         @foreach ($cities->lazy()->split(5) as $chunk)
             <ul class="list-unstyled">
                 @foreach ($chunk as $city)
-                    <li>
+                    <li @class(["fw-bold bg-primary-subtle" => $city->is($selected_city), "p-1"])>
                         <a href="{{ $city->slug }}">{{ $city->name }}</a>
                     </li>
                 @endforeach
