@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use App\Http\Routing\Matching\UriValidator;
+use App\Resolvers\Contracts\CityResolver;
+use App\Resolvers\SessionCityResolver;
 use Illuminate\Routing\Matching\HostValidator;
 use Illuminate\Routing\Matching\MethodValidator;
 use Illuminate\Routing\Matching\SchemeValidator;
@@ -15,7 +17,10 @@ final class CityServiceProvider extends ServiceProvider
     /**
      * Register services.
      */
-    public function register(): void {}
+    public function register(): void
+    {
+        $this->app->singleton(CityResolver::class, SessionCityResolver::class);
+    }
 
     /**
      * Bootstrap services.
