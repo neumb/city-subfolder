@@ -1,8 +1,5 @@
 @extends('layouts.app')
 
-@section('title')
-@endsection
-
 @section('content')
     <div class="d-flex">
         @foreach ($cities->lazy()->split(5) as $chunk)

@@ -9,10 +9,12 @@
         <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
     </head>
     <body>
-        <section class="container mt-5">
-            <h1>{{ $title ?? '' }}</h1>
-            <hr/>
-            @yield('content')
-        </section>
+        <div class="container">
+            @include('nav')
+            <h1 class="mt-2">{{ $title ?? '' }}</h1>
+            <section class="py-4 border-top">
+                @yield('content')
+            </section>
+        </div>
     </body>
 </html>
