@@ -12,7 +12,7 @@ final class PageController extends Controller
         $city = $cityResolver->resolve();
 
         return view('page', [
-            'title' => $city?->name ?? __('Выберите город'),
+            'title' => $city?->name ?? __('Select a location'),
             'current_city' => $city,
         ]);
     }
@@ -22,7 +22,7 @@ final class PageController extends Controller
         $city = $cityResolver->resolve();
 
         return view('news', [
-            'title' => $city?->name ?? __('Выберите город'),
+            'title' => $city?->name ?? __('Select a location'),
             'current_city' => $city,
         ]);
     }
