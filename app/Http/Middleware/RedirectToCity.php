@@ -21,7 +21,9 @@ final class RedirectToCity
 
             $to = $city.$request->getBaseUrl().$request->getPathInfo().$qs;
 
-            return redirect($to, status: 301);
+            return redirect($to, status: 301)->withHeaders([
+                'Cache-Control' => 'no-store, no-cache, must-revalidate',
+            ]);
         }
 
         return $next($request);
