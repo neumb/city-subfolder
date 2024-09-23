@@ -38,6 +38,7 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \App\Http\Middleware\RememberCity::class,
             \App\Http\Middleware\RedirectToCity::class,
+            \App\Http\Middleware\SetLocale::class,
         ],
 
         'api' => [

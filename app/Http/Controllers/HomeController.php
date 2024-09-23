@@ -13,7 +13,7 @@ final class HomeController extends Controller
         $city = $cityResolver->resolve();
 
         return view('home', [
-            'title' => $city?->name ?? __('Выберите город'),
+            'title' => $city?->name ?? __('Select a location'),
             'current_city' => $city,
             'cities' => $queries->listCities()->get(),
         ]);
