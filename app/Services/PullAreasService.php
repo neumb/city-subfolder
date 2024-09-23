@@ -23,12 +23,13 @@ final class PullAreasService
 
         $count = 0;
 
-        $this->dbConn->transaction(fn () => $cities->each(function (string $name) use (&$count, $onProgress): void {
-            $this->processCity($name);
-            $count++;
-            $onProgress($name);
-        })
-        );
+        $this->dbConn->transaction(function () use (&$count, $onProgress, $cities): void {
+            $cities->each(function (string $name) use (&$count, $onProgress): void {
+                $this->processCity($name);
+                $count++;
+                $onProgress($name);
+            });
+        });
 
         return $count;
     }
